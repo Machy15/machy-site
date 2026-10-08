@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Machač Detailing | Paint correction and protection</title>
+<title>Renovace Machy | Renovace laku a ochrana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -105,8 +105,8 @@ footer a:hover{color:var(--acc)}
 <body>
 
 <header><div class="wrap">
-  <a class="logo" href="#top">Machač Detailing</a>
-  <nav><a href="#calculator">Price calculator</a><a href="#work">Our work</a><a class="keep" href="#contact">Contact</a></nav>
+  <a class="logo" href="#top">Renovace Machy</a>
+  <nav><a href="#calculator">Kalkulace Ceny</a><a href="#work">Naše Práce</a><a class="keep" href="#contact">Kontakt</a></nav>
 </div></header>
 
 <main id="top">
@@ -121,8 +121,8 @@ footer a:hover{color:var(--acc)}
 </div></section>
 
 <section id="calculator"><div class="wrap">
-  <h2>Build your estimate</h2>
-  <p class="mut">Tap the panels you want corrected. Prices are estimates; the final price depends on paint condition.</p>
+  <h2>Vytvořte si cenovou nabídku</h2>
+  <p class="mut">Klepněte na panely, které chcete nechat opravit. Uvedené ceny jsou orientační; konečná cena závisí na stavu laku.</p>
   <div class="calc">
     <div class="card">
       <!-- CAR DIAGRAM: each clickable shape has class="p" and data-p="<panel key>" (keys are defined in PANELS in the script). -->
@@ -133,20 +133,20 @@ footer a:hover{color:var(--acc)}
         <path class="d" d="M88 207H212L206 240H94Z"/><path class="d" d="M96 402H204L210 444H90Z"/>
         <path class="d" d="M94 552H206Q210 592 150 598Q90 592 94 552Z"/>
         <!-- LARGE -->
-        <path id="hood" class="p" data-p="hood" d="M82 72H218L214 205H86Z"><title>Hood (kapota)</title></path>
-        <path id="roof" class="p" data-p="roof" d="M94 240H206L204 402H96Z"><title>Roof (střecha)</title></path>
+        <path id="hood" class="p" data-p="hood" d="M82 72H218L214 205H86Z"><title>Kapota</title></path>
+        <path id="roof" class="p" data-p="roof" d="M94 240H206L204 402H96Z"><title>Střecha</title></path>
         <!-- STANDARD -->
-        <path id="fender-l" class="p" data-p="fenderL" d="M56 98Q56 80 80 74L86 205H56Z"><title>Front fender L</title></path>
-        <path id="fender-r" class="p" data-p="fenderR" d="M244 98Q244 80 220 74L214 205H244Z"><title>Front fender R</title></path>
-        <path id="door-fl" class="p" data-p="doorFL" d="M56 210H90V300H56Z"><title>Front door L</title></path>
-        <path id="door-fr" class="p" data-p="doorFR" d="M210 210H244V300H210Z"><title>Front door R</title></path>
-        <path id="door-rl" class="p" data-p="doorRL" d="M56 304H90V394H56Z"><title>Rear door L</title></path>
-        <path id="door-rr" class="p" data-p="doorRR" d="M210 304H244V394H210Z"><title>Rear door R</title></path>
-        <path id="quarter-l" class="p" data-p="quarterL" d="M56 398H90V548Q56 540 56 500Z"><title>Rear quarter L</title></path>
-        <path id="quarter-r" class="p" data-p="quarterR" d="M244 398H210V548Q244 540 244 500Z"><title>Rear quarter R</title></path>
+        <path id="fender-l" class="p" data-p="fenderL" d="M56 98Q56 80 80 74L86 205H56Z"><title>Přední blatník L</title></path>
+        <path id="fender-r" class="p" data-p="fenderR" d="M244 98Q244 80 220 74L214 205H244Z"><title>Přední blatník P</title></path>
+        <path id="door-fl" class="p" data-p="doorFL" d="M56 210H90V300H56Z"><title>Přední dveře L</title></path>
+        <path id="door-fr" class="p" data-p="doorFR" d="M210 210H244V300H210Z"><title>Přední dveře P</title></path>
+        <path id="door-rl" class="p" data-p="doorRL" d="M56 304H90V394H56Z"><title>Zadní dveře L</title></path>
+        <path id="door-rr" class="p" data-p="doorRR" d="M210 304H244V394H210Z"><title>Zadní dveře P</title></path>
+        <path id="quarter-l" class="p" data-p="quarterL" d="M56 398H90V548Q56 540 56 500Z"><title>Zadní boční část L</title></path>
+        <path id="quarter-r" class="p" data-p="quarterR" d="M244 398H210V548Q244 540 244 500Z"><title>Zadní boční část P</title></path>
         <!-- SMALL -->
-        <path id="bumper" class="p" data-p="bumper" d="M82 68Q82 26 150 22Q218 26 218 68Z"><title>Front bumper (přední nárazník)</title></path>
-        <path id="trunk" class="p" data-p="trunk" d="M90 446H210V548H90Z"><title>Trunk lid (víko kufru)</title></path>
+        <path id="bumper" class="p" data-p="bumper" d="M82 68Q82 26 150 22Q218 26 218 68Z"><title>Přední nárazník</title></path>
+        <path id="trunk" class="p" data-p="trunk" d="M90 446H210V548H90Z"><title>Víko kufru</title></path>
         <ellipse id="mirror-l" class="p" data-p="mirrors" cx="46" cy="214" rx="9" ry="7"><title>Mirror pair (zrcátka)</title></ellipse>
         <ellipse id="mirror-r" class="p" data-p="mirrors" cx="254" cy="214" rx="9" ry="7"><title>Mirror pair (zrcátka)</title></ellipse>
         <rect id="pillar-l" class="p dark" data-p="pillars" x="88" y="294" width="10" height="16" rx="2"><title>Piano black pillars (B-sloupky)</title></rect>
@@ -156,22 +156,22 @@ footer a:hover{color:var(--acc)}
     <div class="card">
       <div class="tiers" id="tiers"></div>
       <div class="chips" id="chips"></div>
-      <label class="wax"><input type="checkbox" id="wax" checked><span><b>Add Carnauba Wax protection</b><br><span class="mut" id="waxinfo"></span></span></label>
+      <label class="wax"><input type="checkbox" id="wax" checked><span><b>přidat ochranu karnaubským voskem</b><br><span class="mut" id="waxinfo"></span></span></label>
       <!-- PROMO CODE: codes are defined in PROMOS in the script -->
       <div class="promo">
         <div class="pbox">
           <input type="text" id="promo" placeholder="Promo code" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Promo code">
-          <button type="button" class="btn" id="apply">Apply</button>
+          <button type="button" class="btn" id="apply">Uplatnit</button>
         </div>
         <div class="pmsg" id="pmsg" aria-live="polite"></div>
       </div>
       <ul id="list"></ul>
       <div id="bonus"></div>
-      <div class="mut">Estimated total</div>
+      <div class="mut">Celkem</div>
       <div id="was"></div>
       <div class="total" id="total">0 Kč</div>
       <div class="row">
-        <button class="btn pri" id="book">Book This Selection</button>
+        <button class="btn pri" id="book">Rezervace</button>
         <button class="btn" id="reset">Reset</button>
       </div>
     </div>
@@ -180,7 +180,7 @@ footer a:hover{color:var(--acc)}
 
 <section id="work"><div class="wrap">
   <h2>Our work</h2>
-  <p class="mut">Drag the slider to compare before and after.</p>
+  <p class="mut">Přetáhněte posuvník a porovnejte stav před a po.</p>
   <div class="grid" id="gallery"></div>
 </div></section>
 
@@ -208,7 +208,7 @@ footer a:hover{color:var(--acc)}
 </main>
 
 <footer><div class="wrap">
-  <div><a href="#calculator">Price calculator</a><a href="#work">Our work</a><a href="#contact">Contact</a></div>
+  <div><a href="#calculator">Cenová Kalkulačka</a><a href="#work">Naše Práce</a><a href="#contact">Kontact</a></div>
   <div><a href="https://instagram.com/machac__tomas" target="_blank" rel="noopener">Instagram</a><a href="mailto:machactomas@proton.me">Email</a></div>
   <div>© <span id="yr"></span> Machač Detailing. All rights reserved.</div>
 </div></footer>
