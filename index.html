@@ -151,8 +151,8 @@ Naklikejte požadované díly karoserie a spočítejte si cenu na míru.</p>
         <path id="trunk" class="p" data-p="trunk" d="M90 446H210V548H90Z"><title>Víko kufru</title></path>
         <ellipse id="mirror-l" class="p" data-p="mirrors" cx="46" cy="214" rx="9" ry="7"><title>Pár zrcátek</title></ellipse>
         <ellipse id="mirror-r" class="p" data-p="mirrors" cx="254" cy="214" rx="9" ry="7"><title>Pár zrcátek</title></ellipse>
-        <rect id="pillar-l" class="p dark" data-p="pillars" x="88" y="294" width="10" height="16" rx="2"><title>B-sloupky v lesklé černé</title></rect>
-        <rect id="pillar-r" class="p dark" data-p="pillars" x="202" y="294" width="10" height="16" rx="2"><title>B-sloupky v lesklé černé</title></rect>
+        <rect id="pillar-l" class="p dark" data-p="pillars" x="88" y="294" width="10" height="16" rx="2"><title>B-sloupky v lesklé černé (Nedostupné)</title></rect>
+        <rect id="pillar-r" class="p dark" data-p="pillars" x="202" y="294" width="10" height="16" rx="2"><title>B-sloupky v lesklé černé (Nedostupné) </title></rect>
       </svg>
     </div>
     <div class="card">
@@ -223,9 +223,9 @@ Naklikejte požadované díly karoserie a spočítejte si cenu na míru.</p>
    ===================================================================== */
 const WAX = [460, 620];   // Carnauba wax for the WHOLE CAR, charged once
 const TIERS = {
-  large:    { en: 'Large panel',    cs: 'Velký díl', base: [600, 820], label: '600– 820 Kč' },
-  standard: { en: 'Standard panel', cs: 'Běžný díl', base: [400, 600],  label: '400 – 600 Kč' },
-  small:    { en: 'Small part',     cs: 'Malý díl',  base: [180, 320],   label: '180 – 320 Kč' }
+  large:    { en: 'Large panel',    cs: 'Velký díl', base: [550, 715], label: '550– 715 Kč' },
+  standard: { en: 'Standard panel', cs: 'Běžný díl', base: [320, 540],  label: '320 – 540 Kč' },
+  small:    { en: 'Small part',     cs: 'Malý díl',  base: [180, 250],   label: '180 – 250 Kč' }
 };
 /* Panel keys must match data-p in the SVG above. */
 const PANELS = {
