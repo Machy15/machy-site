@@ -222,9 +222,9 @@ footer a:hover{color:var(--acc)}
    ===================================================================== */
 const WAX = [130, 210];
 const TIERS = {
-  large:    { en: 'Large panel',    cs: 'Velký díl', base: [1100, 1780], label: '1 100 – 1 780 Kč' },
-  standard: { en: 'Standard panel', cs: 'Běžný díl', base: [510, 1020],  label: '640 – 1 230 Kč (with wax)' },
-  small:    { en: 'Small part',     cs: 'Malý díl',  base: [380, 630],   label: '380 – 630 Kč' }
+  large:    { en: 'Large panel',    cs: 'Velký díl', base: [1100, 1780], label: '800 – 1 110 Kč' },
+  standard: { en: 'Standard panel', cs: 'Běžný díl', base: [510, 1020],  label: '550 – 820 Kč (with wax)' },
+  small:    { en: 'Small part',     cs: 'Malý díl',  base: [380, 630],   label: '230 – 525 Kč' }
 };
 /* Panel keys must match data-p in the SVG above. */
 const PANELS = {
@@ -238,10 +238,10 @@ const PANELS = {
   fenderR: { en: 'Front fender R',         tier: 'standard', wax: true },
   quarterL:{ en: 'Rear quarter L',         tier: 'standard', wax: true },
   quarterR:{ en: 'Rear quarter R',         tier: 'standard', wax: true },
-  bumper:  { en: 'Front bumper (nárazník)',tier: 'small',    wax: true },
-  trunk:   { en: 'Trunk lid (víko kufru)', tier: 'small',    wax: true },
-  mirrors: { en: 'Mirror pair (zrcátka)',  tier: 'small',    wax: false },
-  pillars: { en: 'Piano black pillars (B-sloupky)', tier: 'small', wax: false }
+  bumper:  { en: 'Přední nárazník',tier: 'small',    wax: true },
+  trunk:   { en: 'Víko kufru', tier: 'small',    wax: true },
+  mirrors: { en: 'Zrcátka',  tier: 'small',    wax: false },
+  pillars: { en: 'B-sloupky', tier: 'small', wax: false }
 };
 
 /* PROMO CODES. Keys must be lowercase (visitors can type any case).
