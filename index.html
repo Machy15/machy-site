@@ -350,7 +350,7 @@ function render() {
   // dekontaminace: jeden díl = v ceně; více dílů nebo vosk = poplatek WASH_FEE (s infem po najetí/klepnutí na "i")
   if (sel.size > 1 || waxOn) {
     lo += WASH_FEE; hi += WASH_FEE;
-    $('list').insertAdjacentHTML('beforeend', `<li><span>Dekontaminace a umytí vozu<button type="button" class="tip" aria-label="Informace o dekontaminaci a umytí">i<span>Vozidlo se před voskem nebo u více panelů musí umýt celé, aby nedošlo k poškození laku.</span></button></span><b>${fmt(WASH_FEE)} Kč</b></li>`);
+    $('list').insertAdjacentHTML('beforeend', `<li><span>Dekontaminace a umytí vozu<button type="button" class="tip" aria-label="Informace o dekontaminaci a umytí">i<span>Vozidlo se před voskem nebo u více panelů musí umýt a dekontaminovat celé, aby nedošlo k poškození laku pří následných operacích.</span></button></span><b>${fmt(WASH_FEE)} Kč</b></li>`);
   } else if (sel.size === 1) {
     $('list').insertAdjacentHTML('beforeend', `<li class="ok-row"><span>Dekontaminace panelu</span><b>v ceně</b></li>`);
   }
