@@ -216,6 +216,28 @@ Naklikejte požadované díly karoserie a spočítejte si cenu na míru.</p>
 </div></footer>
 
 <script>
+
+  /* ===== LOGO: nahraje logo do horní lišty a do záložky prohlížeče ===== */
+const LOGO = {
+  file: 'static.png',   // název souboru s logem (nahraj ho na GitHub vedle index.html)
+  height: 40,         // výška loga v liště (px)
+  favicon: true       // true = logo i jako ikonka v záložce
+};
+document.addEventListener('DOMContentLoaded', () => {
+  const link = document.querySelector('.logo');      // odkaz s názvem v horní liště
+  const img = new Image();
+  img.onload = () => {                               // spustí se jen když soubor existuje
+    img.alt = 'Machač Detailing';
+    img.style.cssText = `height:${LOGO.height}px;width:auto;display:block`;
+    link.textContent = '';
+    link.appendChild(img);
+    if (LOGO.favicon) {
+      const f = document.querySelector('link[rel~="icon"]') || document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'icon' }));
+      f.href = LOGO.file;
+    }
+  };
+  img.src = LOGO.file;
+});
 /* =====================================================================
    1) PRICES. Edit numbers here. Ranges are [min, max] in Kč.
    Each panel price comes from its tier (base). Carnauba wax is NOT per
