@@ -266,6 +266,7 @@ const PROMOS = {
 const GALLERY = [
 { title: 'Korekce laku: střecha', beforeImg: 'strecha1.jpeg', afterImg: 'strecha2.jpeg' },
 { title: 'Korekce laku: spoiler', beforeImg: 'spoiler1.jpeg', afterImg: 'spoiler2.jpeg' },
+{ title: 'Korekce laku: spoiler', beforeImg: 'vrch1.jpeg', afterImg: 'vrch2.jpeg' },
   
 ];
 const GALLERY_MIN_CARDS = 6;
@@ -276,7 +277,7 @@ const blankImg = (label, hue, light) => 'data:image/svg+xml;utf8,' + encodeURICo
 const ITEMS = [...GALLERY];
 for (let i = ITEMS.length; i < GALLERY_MIN_CARDS; i++) {
   const hue = 180 + Math.floor(Math.random() * 80);
-  ITEMS.push({ title: `Zde bude vaše práce ${i + 1}`, beforeImg: blankImg('Fotka před', hue, 15), afterImg: blankImg('Fotka po', hue, 30) });
+  ITEMS.push({ title: `Zde bude naše práce ${i + 1}`, beforeImg: blankImg('Fotka před', hue, 15), afterImg: blankImg('Fotka po', hue, 30) });
 }
 
 /* =====================================================================
