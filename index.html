@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Renovace Machy | Renovace laku a ochrana</title>
+<title>Machač Detailing | Korekce laku a ochrana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -35,7 +35,7 @@ nav a:hover{color:var(--acc)}
 @media(max-width:640px){nav a:not(.keep){display:none}}
 /* hero */
 .hero{min-height:88vh;display:flex;align-items:center;background:radial-gradient(60% 55% at 78% 30%,rgba(25,211,255,.18),transparent 70%),radial-gradient(40% 40% at 10% 90%,rgba(59,130,246,.14),transparent 70%)}
-.hero h1{font-size:clamp(3rem,9vw,6.4rem);max-width:12ch;animation:rise .9s ease both}
+.hero h1{font-size:clamp(3rem,9vw,6.4rem);max-width:14ch;animation:rise .9s ease both}
 .hero p{max-width:52ch;color:var(--mut);font-size:1.15rem;margin:22px 0 32px;animation:rise .9s .15s ease both}
 .cta{display:flex;flex-wrap:wrap;gap:12px;animation:rise .9s .3s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}}
@@ -105,28 +105,28 @@ footer a:hover{color:var(--acc)}
 <body>
 
 <header><div class="wrap">
-  <a class="logo" href="#top">Renovace Machy</a>
-  <nav><a href="#calculator">Kalkulace Ceny</a><a href="#work">Naše Práce</a><a class="keep" href="#contact">Kontakt</a></nav>
+  <a class="logo" href="#top">Machač Detailing</a>
+  <nav><a href="#calculator">Kalkulačka ceny</a><a href="#work">Naše práce</a><a class="keep" href="#contact">Kontakt</a></nav>
 </div></header>
 
 <main id="top">
 <section class="hero"><div class="wrap">
-  <h1>Paint correction, done to the micron.</h1>
-  <p>Scratch removal, deep gloss and long-lasting protection for your car's paint. Choose your panels and see a live estimate in seconds.</p>
+  <h1>Korekce laku s přesností na mikron.</h1>
+  <p>Odstranění škrábanců, hluboký lesk a dlouhotrvající ochrana laku vašeho auta. Vyberte díly a během pár vteřin uvidíte orientační cenu.</p>
   <div class="cta">
-    <a class="btn pri" href="#calculator">Interactive Price Calculator</a>
-    <a class="btn" href="#work">Our Work</a>
-    <a class="btn" href="#contact">Contact / Book</a>
+    <a class="btn pri" href="#calculator">Interaktivní kalkulačka ceny</a>
+    <a class="btn" href="#work">Naše práce</a>
+    <a class="btn" href="#contact">Kontakt / Objednávka</a>
   </div>
 </div></section>
 
 <section id="calculator"><div class="wrap">
-  <h2>Vytvořte si cenovou nabídku</h2>
-  <p class="mut">Klepněte na panely, které chcete nechat opravit. Uvedené ceny jsou orientační; konečná cena závisí na stavu laku.</p>
+  <h2>Sestavte si odhad ceny</h2>
+  <p class="mut">Klepněte na díly, které chcete vyleštit. Ceny jsou orientační, konečná cena závisí na stavu laku.</p>
   <div class="calc">
     <div class="card">
       <!-- CAR DIAGRAM: each clickable shape has class="p" and data-p="<panel key>" (keys are defined in PANELS in the script). -->
-      <svg id="car" viewBox="0 0 300 620" role="group" aria-label="Car panel diagram, top view">
+      <svg id="car" viewBox="0 0 300 620" role="group" aria-label="Schéma dílů auta, pohled shora">
         <!-- wheels + non-clickable parts -->
         <ellipse class="d" cx="46" cy="140" rx="9" ry="28"/><ellipse class="d" cx="254" cy="140" rx="9" ry="28"/>
         <ellipse class="d" cx="46" cy="470" rx="9" ry="28"/><ellipse class="d" cx="254" cy="470" rx="9" ry="28"/>
@@ -136,71 +136,71 @@ footer a:hover{color:var(--acc)}
         <path id="hood" class="p" data-p="hood" d="M82 72H218L214 205H86Z"><title>Kapota</title></path>
         <path id="roof" class="p" data-p="roof" d="M94 240H206L204 402H96Z"><title>Střecha</title></path>
         <!-- STANDARD -->
-        <path id="fender-l" class="p" data-p="fenderL" d="M56 98Q56 80 80 74L86 205H56Z"><title>Přední blatník L</title></path>
-        <path id="fender-r" class="p" data-p="fenderR" d="M244 98Q244 80 220 74L214 205H244Z"><title>Přední blatník P</title></path>
-        <path id="door-fl" class="p" data-p="doorFL" d="M56 210H90V300H56Z"><title>Přední dveře L</title></path>
-        <path id="door-fr" class="p" data-p="doorFR" d="M210 210H244V300H210Z"><title>Přední dveře P</title></path>
-        <path id="door-rl" class="p" data-p="doorRL" d="M56 304H90V394H56Z"><title>Zadní dveře L</title></path>
-        <path id="door-rr" class="p" data-p="doorRR" d="M210 304H244V394H210Z"><title>Zadní dveře P</title></path>
-        <path id="quarter-l" class="p" data-p="quarterL" d="M56 398H90V548Q56 540 56 500Z"><title>Zadní boční část L</title></path>
-        <path id="quarter-r" class="p" data-p="quarterR" d="M244 398H210V548Q244 540 244 500Z"><title>Zadní boční část P</title></path>
+        <path id="fender-l" class="p" data-p="fenderL" d="M56 98Q56 80 80 74L86 205H56Z"><title>Přední blatník levý</title></path>
+        <path id="fender-r" class="p" data-p="fenderR" d="M244 98Q244 80 220 74L214 205H244Z"><title>Přední blatník pravý</title></path>
+        <path id="door-fl" class="p" data-p="doorFL" d="M56 210H90V300H56Z"><title>Přední dveře levé</title></path>
+        <path id="door-fr" class="p" data-p="doorFR" d="M210 210H244V300H210Z"><title>Přední dveře pravé</title></path>
+        <path id="door-rl" class="p" data-p="doorRL" d="M56 304H90V394H56Z"><title>Zadní dveře levé</title></path>
+        <path id="door-rr" class="p" data-p="doorRR" d="M210 304H244V394H210Z"><title>Zadní dveře pravé</title></path>
+        <path id="quarter-l" class="p" data-p="quarterL" d="M56 398H90V548Q56 540 56 500Z"><title>Zadní bok levý</title></path>
+        <path id="quarter-r" class="p" data-p="quarterR" d="M244 398H210V548Q244 540 244 500Z"><title>Zadní bok pravý</title></path>
         <!-- SMALL -->
         <path id="bumper" class="p" data-p="bumper" d="M82 68Q82 26 150 22Q218 26 218 68Z"><title>Přední nárazník</title></path>
         <path id="trunk" class="p" data-p="trunk" d="M90 446H210V548H90Z"><title>Víko kufru</title></path>
-        <ellipse id="mirror-l" class="p" data-p="mirrors" cx="46" cy="214" rx="9" ry="7"><title>Mirror pair (zrcátka)</title></ellipse>
-        <ellipse id="mirror-r" class="p" data-p="mirrors" cx="254" cy="214" rx="9" ry="7"><title>Mirror pair (zrcátka)</title></ellipse>
-        <rect id="pillar-l" class="p dark" data-p="pillars" x="88" y="294" width="10" height="16" rx="2"><title>Piano black pillars (B-sloupky)</title></rect>
-        <rect id="pillar-r" class="p dark" data-p="pillars" x="202" y="294" width="10" height="16" rx="2"><title>Piano black pillars (B-sloupky)</title></rect>
+        <ellipse id="mirror-l" class="p" data-p="mirrors" cx="46" cy="214" rx="9" ry="7"><title>Pár zrcátek</title></ellipse>
+        <ellipse id="mirror-r" class="p" data-p="mirrors" cx="254" cy="214" rx="9" ry="7"><title>Pár zrcátek</title></ellipse>
+        <rect id="pillar-l" class="p dark" data-p="pillars" x="88" y="294" width="10" height="16" rx="2"><title>B-sloupky v lesklé černé</title></rect>
+        <rect id="pillar-r" class="p dark" data-p="pillars" x="202" y="294" width="10" height="16" rx="2"><title>B-sloupky v lesklé černé</title></rect>
       </svg>
     </div>
     <div class="card">
       <div class="tiers" id="tiers"></div>
       <div class="chips" id="chips"></div>
-      <label class="wax"><input type="checkbox" id="wax" checked><span><b>přidat ochranu karnaubským voskem</b><br><span class="mut" id="waxinfo"></span></span></label>
+      <label class="wax"><input type="checkbox" id="wax" checked><span><b>Přidat ochranu karnaubským voskem</b><br><span class="mut" id="waxinfo"></span></span></label>
       <!-- PROMO CODE: codes are defined in PROMOS in the script -->
       <div class="promo">
         <div class="pbox">
-          <input type="text" id="promo" placeholder="Promo code" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Promo code">
-          <button type="button" class="btn" id="apply">Uplatnit</button>
+          <input type="text" id="promo" placeholder="Slevový kód" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Slevový kód">
+          <button type="button" class="btn" id="apply">Použít</button>
         </div>
         <div class="pmsg" id="pmsg" aria-live="polite"></div>
       </div>
       <ul id="list"></ul>
       <div id="bonus"></div>
-      <div class="mut">Celkem</div>
+      <div class="mut">Odhadovaná cena celkem</div>
       <div id="was"></div>
       <div class="total" id="total">0 Kč</div>
       <div class="row">
-        <button class="btn pri" id="book">Rezervace</button>
-        <button class="btn" id="reset">Reset</button>
+        <button class="btn pri" id="book">Objednat tento výběr</button>
+        <button class="btn" id="reset">Vynulovat</button>
       </div>
     </div>
   </div>
 </div></section>
 
 <section id="work"><div class="wrap">
-  <h2>Our work</h2>
-  <p class="mut">Přetáhněte posuvník a porovnejte stav před a po.</p>
+  <h2>Naše práce</h2>
+  <p class="mut">Posunutím posuvníku porovnáte stav před a po.</p>
   <div class="grid" id="gallery"></div>
 </div></section>
 
 <section id="contact"><div class="wrap">
-  <h2>Contact and booking</h2>
-  <p class="mut">Send your details and we'll reply with a confirmed price and a date.</p>
+  <h2>Kontakt a objednávka</h2>
+  <p class="mut">Pošlete nám údaje a ozveme se s potvrzenou cenou a termínem.</p>
   <div class="contact">
     <form class="card" id="f">
-      <label>Full name<input type="text" name="name" required autocomplete="name"></label>
-      <label>Email<input type="email" name="email" required autocomplete="email"></label>
-      <label>Phone number<input type="tel" name="phone" autocomplete="tel"></label>
-      <label>Vehicle brand and model<input type="text" name="car" required></label>
-      <label>Selected panels<textarea name="panels" rows="3" placeholder="Pick panels in the calculator or list them here"></textarea></label>
-      <label>Promo code<input type="text" name="promoCode" readonly placeholder="None applied (apply it in the calculator)"></label>
-      <label>Message<textarea name="msg" rows="4"></textarea></label>
-      <button class="btn pri" type="submit">Send request</button>
+      <label>Celé jméno<input type="text" name="name" required autocomplete="name"></label>
+      <label>E-mail<input type="email" name="email" required autocomplete="email"></label>
+      <label>Telefonní číslo<input type="tel" name="phone" autocomplete="tel"></label>
+      <label>Značka a model vozidla<input type="text" name="car" required></label>
+      <label>Vybrané díly<textarea name="panels" rows="3" placeholder="Vyberte díly v kalkulačce nebo je napište sem"></textarea></label>
+      <label>Slevový kód<input type="text" name="promoCode" readonly placeholder="Žádný (použijte ho v kalkulačce)"></label>
+      <label>Zpráva<textarea name="msg" rows="4"></textarea></label>
+      <button class="btn pri" type="submit">Odeslat poptávku</button>
       <p class="mut" id="status" aria-live="polite"></p>
     </form>
     <div class="info">
-      <a class="card" href="mailto:machactomas@proton.me"><span class="mut">Email</span><b>machactomas@proton.me</b></a>
+      <a class="card" href="mailto:machactomas@proton.me"><span class="mut">E-mail</span><b>machactomas@proton.me</b></a>
       <a class="card" href="https://instagram.com/machac__tomas" target="_blank" rel="noopener"><span class="mut">Instagram</span><b>@machac__tomas</b></a>
     </div>
   </div>
@@ -208,9 +208,9 @@ footer a:hover{color:var(--acc)}
 </main>
 
 <footer><div class="wrap">
-  <div><a href="#calculator">Cenová Kalkulačka</a><a href="#work">Naše Práce</a><a href="#contact">Kontact</a></div>
-  <div><a href="https://instagram.com/machac__tomas" target="_blank" rel="noopener">Instagram</a><a href="mailto:machactomas@proton.me">Email</a></div>
-  <div>© <span id="yr"></span> Machač Detailing. All rights reserved.</div>
+  <div><a href="#calculator">Kalkulačka ceny</a><a href="#work">Naše práce</a><a href="#contact">Kontakt</a></div>
+  <div><a href="https://instagram.com/machac__tomas" target="_blank" rel="noopener">Instagram</a><a href="mailto:machactomas@proton.me">E-mail</a></div>
+  <div>© <span id="yr"></span> Machač Detailing. Všechna práva vyhrazena.</div>
 </div></footer>
 
 <script>
@@ -222,53 +222,58 @@ footer a:hover{color:var(--acc)}
    ===================================================================== */
 const WAX = [130, 210];
 const TIERS = {
-  large:    { en: 'Large panel',    cs: 'Velký díl', base: [1100, 1780], label: '800 – 1 110 Kč' },
-  standard: { en: 'Standard panel', cs: 'Běžný díl', base: [510, 1020],  label: '550 – 820 Kč (with wax)' },
-  small:    { en: 'Small part',     cs: 'Malý díl',  base: [380, 630],   label: '230 – 525 Kč' }
+  large:    { en: 'Large panel',    cs: 'Velký díl', base: [1100, 1780], label: '1 100 – 1 780 Kč' },
+  standard: { en: 'Standard panel', cs: 'Běžný díl', base: [510, 1020],  label: '640 – 1 230 Kč (s voskem)' },
+  small:    { en: 'Small part',     cs: 'Malý díl',  base: [380, 630],   label: '380 – 630 Kč' }
 };
 /* Panel keys must match data-p in the SVG above. */
 const PANELS = {
-  hood:    { en: 'Hood (kapota)',          tier: 'large',    wax: true },
-  roof:    { en: 'Roof (střecha)',         tier: 'large',    wax: true },
-  doorFL:  { en: 'Front door L',           tier: 'standard', wax: true },
-  doorFR:  { en: 'Front door R',           tier: 'standard', wax: true },
-  doorRL:  { en: 'Rear door L',            tier: 'standard', wax: true },
-  doorRR:  { en: 'Rear door R',            tier: 'standard', wax: true },
-  fenderL: { en: 'Front fender L',         tier: 'standard', wax: true },
-  fenderR: { en: 'Front fender R',         tier: 'standard', wax: true },
-  quarterL:{ en: 'Rear quarter L',         tier: 'standard', wax: true },
-  quarterR:{ en: 'Rear quarter R',         tier: 'standard', wax: true },
-  bumper:  { en: 'Přední nárazník',tier: 'small',    wax: true },
-  trunk:   { en: 'Víko kufru', tier: 'small',    wax: true },
-  mirrors: { en: 'Zrcátka',  tier: 'small',    wax: false },
-  pillars: { en: 'B-sloupky', tier: 'small', wax: false }
+  hood:    { name: 'Kapota',                tier: 'large',    wax: true },
+  roof:    { name: 'Střecha',               tier: 'large',    wax: true },
+  doorFL:  { name: 'Přední dveře levé',     tier: 'standard', wax: true },
+  doorFR:  { name: 'Přední dveře pravé',    tier: 'standard', wax: true },
+  doorRL:  { name: 'Zadní dveře levé',      tier: 'standard', wax: true },
+  doorRR:  { name: 'Zadní dveře pravé',     tier: 'standard', wax: true },
+  fenderL: { name: 'Přední blatník levý',   tier: 'standard', wax: true },
+  fenderR: { name: 'Přední blatník pravý',  tier: 'standard', wax: true },
+  quarterL:{ name: 'Zadní bok levý',        tier: 'standard', wax: true },
+  quarterR:{ name: 'Zadní bok pravý',       tier: 'standard', wax: true },
+  bumper:  { name: 'Přední nárazník',       tier: 'small',    wax: true },
+  trunk:   { name: 'Víko kufru',            tier: 'small',    wax: true },
+  mirrors: { name: 'Pár zrcátek',           tier: 'small',    wax: false },
+  pillars: { name: 'B-sloupky v lesklé černé', tier: 'small', wax: false }
 };
 
 /* PROMO CODES. Keys must be lowercase (visitors can type any case).
    percent: discount on the total range | freeWax: wax costs 0 Kč and is switched on
    bonus: free service shown as a badge | msg: success message. One code is active at a time. */
 const PROMOS = {
-  machy15:     { percent: 15, msg: '15% discount applied to your estimate.' },
-  machycar:    { freeWax: true, msg: 'Free Carnauba wax unlocked: wax is included at 0 Kč.' },
-  machytemp01: { bonus: 'Door handle cup scratch removal / polish included free (Rozleštění pod klikami zdarma).',
-                 msg: 'Free door handle cup polish added to your booking.' }
+  machy15:     { percent: 15, msg: 'Sleva 15 % byla uplatněna na odhad ceny.' },
+  machycar:    { freeWax: true, msg: 'Karnaubský vosk zdarma: vosk je v ceně (0 Kč).' },
+  machytemp01: { bonus: 'Rozleštění pod klikami zdarma (odstranění škrábanců pod klikami dveří).',
+                 msg: 'Rozleštění pod klikami zdarma bylo přidáno k vaší objednávce.' }
 };
 
 /* =====================================================================
-   2) GALLERY. Add or replace photos here only: title, beforeImg, afterImg.
-   Use full image URLs or file paths, e.g. 'photos/bmw-before.jpg'.
-   The ph() placeholders below are generated images; delete them when
-   you add real photos.
+   2) GALLERY. Add your real photos to GALLERY: title, beforeImg, afterImg.
+   Use file paths ('photos/kapota-pred.jpg') or full https:// URLs.
+   Blank placeholder cards (random tint, generated below) fill the grid up
+   to GALLERY_MIN_CARDS. Each real photo you add replaces one blank card.
+   Set GALLERY_MIN_CARDS to 0 to show only real photos.
    ===================================================================== */
-const ph = (t, bad) => 'data:image/svg+xml;utf8,' + encodeURIComponent(
-  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#1b2a3a'/><stop offset='.5' stop-color='${bad ? '#3a4350' : '#0d6a8a'}'/><stop offset='1' stop-color='#0c1014'/></linearGradient></defs><rect width='800' height='500' fill='url(#g)'/>` +
-  (bad ? Array.from({length: 46}, (_, i) => `<path d='M${i * 53 % 800} ${i * 97 % 500}l${60 + i % 5 * 22} ${-24 + i % 7 * 9}' stroke='#fff' stroke-opacity='.18'/>`).join('') : '') +
-  `<text x='400' y='260' fill='#fff' fill-opacity='.55' font-family='sans-serif' font-size='30' text-anchor='middle'>${t}</text></svg>`);
 const GALLERY = [
-  { title: 'Swirl and scratch removal: hood',    beforeImg: ph('Before: swirls', true), afterImg: ph('After: mirror gloss') },
-  { title: 'Deep scratch repair: rear door',      beforeImg: ph('Before: scratches', true), afterImg: ph('After: restored paint') },
-  { title: 'Full correction and wax: roof',       beforeImg: ph('Before: dull paint', true), afterImg: ph('After: deep gloss') }
+  // { title: 'Korekce laku: kapota', beforeImg: 'photos/kapota-pred.jpg', afterImg: 'photos/kapota-po.jpg' },
 ];
+const GALLERY_MIN_CARDS = 6;
+
+// Blank picture with a random cool tint (no image file needed)
+const blankImg = (label, hue, light) => 'data:image/svg+xml;utf8,' + encodeURIComponent(
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' fill='hsl(${hue},24%,${light}%)'/><text x='400' y='260' fill='#fff' fill-opacity='.45' font-family='sans-serif' font-size='30' text-anchor='middle'>${label}</text></svg>`);
+const ITEMS = [...GALLERY];
+for (let i = ITEMS.length; i < GALLERY_MIN_CARDS; i++) {
+  const hue = 180 + Math.floor(Math.random() * 80);
+  ITEMS.push({ title: `Zde bude vaše práce ${i + 1}`, beforeImg: blankImg('Fotka před', hue, 15), afterImg: blankImg('Fotka po', hue, 30) });
+}
 
 /* =====================================================================
    3) LOGIC. You normally don't need to edit below.
@@ -283,16 +288,16 @@ function price(k) {            // returns [min, max] for one panel
   return $('wax').checked && p.wax ? [b[0] + w[0], b[1] + w[1]] : [...b];
 }
 function summary() {           // text used by the booking form
-  const lines = [...sel].map(k => '- ' + PANELS[k].en);
-  let s = lines.join('\n') + `\nCarnauba wax: ${$('wax').checked ? 'yes' : 'no'}`;
-  if (promo) s += `\nPromo code: ${promo.toUpperCase()} (${PROMOS[promo].msg})`;
-  return s + `\nEstimate: ${totalText}`;
+  const lines = [...sel].map(k => '- ' + PANELS[k].name);
+  let s = lines.join('\n') + `\nKarnaubský vosk: ${$('wax').checked ? 'ano' : 'ne'}`;
+  if (promo) s += `\nSlevový kód: ${promo.toUpperCase()} (${PROMOS[promo].msg})`;
+  return s + `\nOdhad ceny: ${totalText}`;
 }
 function syncWax() {           // a free-wax code forces wax on and locks the toggle
   const free = promo && PROMOS[promo].freeWax;
   if (free) $('wax').checked = true;
   $('wax').disabled = !!free;
-  $('waxinfo').textContent = free ? 'Free with your promo code' : `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč per applicable panel`;
+  $('waxinfo').textContent = free ? 'Zdarma díky slevovému kódu' : `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč za každý vhodný díl`;
 }
 function render() {
   syncWax();
@@ -300,21 +305,21 @@ function render() {
   let lo = 0, hi = 0;
   $('list').innerHTML = [...sel].map(k => {
     const [a, b] = price(k); lo += a; hi += b;
-    return `<li><span>${PANELS[k].en}</span><b>${fmt(a)} – ${fmt(b)} Kč</b></li>`;
-  }).join('') || '<li class="mut">Tap a panel on the car to start.</li>';
+    return `<li><span>${PANELS[k].name}</span><b>${fmt(a)} – ${fmt(b)} Kč</b></li>`;
+  }).join('') || '<li class="mut">Klepněte na díl auta a začněte.</li>';
   const pr = promo && PROMOS[promo], pct = pr && pr.percent || 0;
   const cut = n => Math.round(n * (1 - pct / 100));      // discount applies to min and max
-  if (pct && sel.size) $('list').insertAdjacentHTML('beforeend', `<li class="mut"><span>Promo ${promo.toUpperCase()}</span><b>−${pct}%</b></li>`);
+  if (pct && sel.size) $('list').insertAdjacentHTML('beforeend', `<li class="mut"><span>Slevový kód ${promo.toUpperCase()}</span><b>−${pct} %</b></li>`);
   $('was').textContent = pct && sel.size ? `${fmt(lo)} – ${fmt(hi)} Kč` : '';
   totalText = sel.size ? `${fmt(cut(lo))} – ${fmt(cut(hi))} Kč` : '0 Kč';
   $('total').textContent = totalText;
-  $('bonus').innerHTML = pr && pr.bonus ? `<div class="badge"><b>Free</b><span>${pr.bonus}</span></div>` : '';
+  $('bonus').innerHTML = pr && pr.bonus ? `<div class="badge"><b>Zdarma</b><span>${pr.bonus}</span></div>` : '';
 }
 
 // build tier list + chips
-$('tiers').innerHTML = Object.values(TIERS).map(t => `<div><span>${t.en} <span class="mut">(${t.cs})</span></span><b>${t.label}</b></div>`).join('');
-$('chips').innerHTML = Object.entries(PANELS).map(([k, p]) => `<button type="button" class="chip" data-p="${k}">${p.en}</button>`).join('');
-$('waxinfo').textContent = `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč per applicable panel`;
+$('tiers').innerHTML = Object.values(TIERS).map(t => `<div><span>${t.cs}</span><b>${t.label}</b></div>`).join('');
+$('chips').innerHTML = Object.entries(PANELS).map(([k, p]) => `<button type="button" class="chip" data-p="${k}">${p.name}</button>`).join('');
+$('waxinfo').textContent = `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč za každý vhodný díl`;
 
 // click / tap on diagram or chip toggles a panel
 document.addEventListener('click', e => {
@@ -332,7 +337,7 @@ function setPromo(code) {
   msg.className = 'pmsg';
   if (!key) { promo = null; msg.textContent = ''; }
   else if (PROMOS[key]) { promo = key; box.classList.add('ok'); msg.classList.add('ok'); msg.textContent = '✓ ' + PROMOS[key].msg; }
-  else { promo = null; box.classList.add('bad'); msg.classList.add('err'); msg.textContent = `That code isn't valid. Check the spelling and try again.`; }
+  else { promo = null; box.classList.add('bad'); msg.classList.add('err'); msg.textContent = `Tento kód není platný. Zkontrolujte překlepy a zkuste to znovu.`; }
   $('f').promoCode.value = promo ? promo.toUpperCase() : '';   // passes the code to the booking form
   render();
 }
@@ -345,10 +350,10 @@ $('book').onclick = () => {
 };
 
 // gallery with before/after sliders
-$('gallery').innerHTML = GALLERY.map(g => `<figure class="card"><div class="ba">
-  <img src="${g.afterImg}" alt="${g.title}, after" loading="lazy"><img class="b" src="${g.beforeImg}" alt="${g.title}, before" loading="lazy">
-  <span class="tag" style="left:10px">Before</span><span class="tag" style="right:10px">After</span><span class="h"></span>
-  <input type="range" min="0" max="100" value="50" aria-label="Before and after slider: ${g.title}"></div>
+$('gallery').innerHTML = ITEMS.map(g => `<figure class="card"><div class="ba">
+  <img src="${g.afterImg}" alt="${g.title}, po" loading="lazy"><img class="b" src="${g.beforeImg}" alt="${g.title}, před" loading="lazy">
+  <span class="tag" style="left:10px">Před</span><span class="tag" style="right:10px">Po</span><span class="h"></span>
+  <input type="range" min="0" max="100" value="50" aria-label="Posuvník před a po: ${g.title}"></div>
   <figcaption>${g.title}</figcaption></figure>`).join('');
 $('gallery').addEventListener('input', e => e.target.closest('.ba').style.setProperty('--p', e.target.value + '%'));
 
@@ -357,11 +362,11 @@ $('gallery').addEventListener('input', e => e.target.closest('.ba').style.setPro
 $('f').addEventListener('submit', e => {
   e.preventDefault();
   const d = new FormData(e.target), v = k => d.get(k) || '-';
-  const body = `Name: ${v('name')}\nEmail: ${v('email')}\nPhone: ${v('phone')}\nVehicle: ${v('car')}\nPromo code: ${v('promoCode')}\n\nPanels:\n${v('panels')}\n\nMessage:\n${v('msg')}`;
+  const body = `Jméno: ${v('name')}\nE-mail: ${v('email')}\nTelefon: ${v('phone')}\nVozidlo: ${v('car')}\nSlevový kód: ${v('promoCode')}\n\nDíly:\n${v('panels')}\n\nZpráva:\n${v('msg')}`;
   const a = document.createElement('a');
-  a.href = `mailto:machactomas@proton.me?subject=${encodeURIComponent('Booking request: ' + v('car'))}&body=${encodeURIComponent(body)}`;
+  a.href = `mailto:machactomas@proton.me?subject=${encodeURIComponent('Poptávka služeb: ' + v('car'))}&body=${encodeURIComponent(body)}`;
   a.click();
-  $('status').textContent = 'Your email app should open with the request ready to send. If it does not, write to machactomas@proton.me.';
+  $('status').textContent = 'Otevře se váš e-mailový program s připravenou zprávou. Pokud ne, napište na machactomas@proton.me.';
 });
 
 $('yr').textContent = new Date().getFullYear();
