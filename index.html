@@ -225,6 +225,7 @@ const TIERS = {
   large:    { en: 'Large panel',    cs: 'Velký díl', base: [1100, 1780], label: '800 – 1 110 Kč' },
   standard: { en: 'Standard panel', cs: 'Běžný díl', base: [510, 1020],  label: '550 – 820 Kč (with wax)' },
   small:    { en: 'Small part',     cs: 'Malý díl',  base: [380, 630],   label: '230 – 525 Kč' }
+  not:    { en: 'unavailable',     cs: 'Nedostupné',  base: [0, 0],   label: 'Nedostupné' }
 };
 /* Panel keys must match data-p in the SVG above. */
 const PANELS = {
@@ -241,7 +242,7 @@ const PANELS = {
   bumper:  { en: 'Přední nárazník',tier: 'small',    wax: true },
   trunk:   { en: 'Víko kufru', tier: 'small',    wax: true },
   mirrors: { en: 'Zrcátka',  tier: 'small',    wax: false },
-  pillars: { en: 'B-sloupky', tier: 'small', wax: false }
+  pillars: { en: 'B-sloupky', tier: 'unavailable', wax: false }
 };
 
 /* PROMO CODES. Keys must be lowercase (visitors can type any case).
