@@ -76,6 +76,12 @@ nav a:hover{color:var(--acc)}
 .badge b{color:var(--acc);font-family:"Barlow Condensed",sans-serif;font-size:1.1rem;line-height:1.3}
 #was{text-decoration:line-through;color:var(--mut);min-height:0}
 input[readonly]{color:var(--acc)}
+/* info tooltip (i) */
+#list li{position:relative}
+.tip{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-left:6px;padding:0;border-radius:50%;border:1px solid var(--acc);background:none;color:var(--acc);font:700 12px/1 "DM Sans",sans-serif;cursor:help;vertical-align:middle}
+.tip span{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 6px);padding:10px 12px;border-radius:8px;background:#0b0f14;border:1px solid var(--acc);color:var(--tx);font:400 13px/1.45 "DM Sans",sans-serif;text-align:left;box-shadow:var(--glow);z-index:5}
+.tip:hover span,.tip:focus-visible span,.tip.open span{display:block}
+.ok-row{color:var(--acc)}
 /* gallery */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:30px}
 .ba{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:10px;--p:50%;user-select:none}
@@ -244,6 +250,8 @@ document.addEventListener('DOMContentLoaded', () => {
    panel: it is one flat add-on for the whole car (WAX below).
    ===================================================================== */
 const WAX = [460, 620];   // Carnauba wax for the WHOLE CAR, charged once
+// Dekontaminace a umytí vozu: u JEDNOHO dílu je v ceně, u více dílů nebo při vosku se účtuje tento poplatek (Kč)
+const WASH_FEE = 150;
 const TIERS = {
   large:    { en: 'Large panel',    cs: 'Velký díl', base: [550, 715], label: '550– 715 Kč' },
   standard: { en: 'Standard panel', cs: 'Běžný díl', base: [320, 540],  label: '320 – 540 Kč' },
@@ -316,6 +324,7 @@ function price(k) {            // returns [min, max] for one panel
 function summary() {           // text used by the booking form
   const lines = [...sel].map(k => '- ' + PANELS[k].name);
   let s = lines.join('\n') + `\nKarnaubský vosk na celé auto: ${$('wax').checked ? 'ano' : 'ne'}`;
+  s += sel.size > 1 || $('wax').checked ? `\nDekontaminace a umytí vozu: ${WASH_FEE} Kč` : (sel.size === 1 ? '\nDekontaminace panelu: v ceně' : '');
   if (promo) s += `\nSlevový kód: ${promo.toUpperCase()} (${PROMOS[promo].msg})`;
   return s + `\nOdhad ceny: ${totalText}`;
 }
@@ -337,6 +346,13 @@ function render() {
   if (waxOn) {
     lo += wc[0]; hi += wc[1];
     $('list').insertAdjacentHTML('beforeend', `<li><span>Karnaubský vosk (celé auto)</span><b>${wc[1] ? `${fmt(wc[0])} – ${fmt(wc[1])} Kč` : 'zdarma'}</b></li>`);
+  }
+  // dekontaminace: jeden díl = v ceně; více dílů nebo vosk = poplatek WASH_FEE (s infem po najetí/klepnutí na "i")
+  if (sel.size > 1 || waxOn) {
+    lo += WASH_FEE; hi += WASH_FEE;
+    $('list').insertAdjacentHTML('beforeend', `<li><span>Dekontaminace a umytí vozu<button type="button" class="tip" aria-label="Informace o dekontaminaci a umytí">i<span>Vozidlo se před voskem nebo u více panelů musí umýt celé, aby nedošlo k poškození laku.</span></button></span><b>${fmt(WASH_FEE)} Kč</b></li>`);
+  } else if (sel.size === 1) {
+    $('list').insertAdjacentHTML('beforeend', `<li class="ok-row"><span>Dekontaminace panelu</span><b>v ceně</b></li>`);
   }
   const pr = promo && PROMOS[promo], pct = pr && pr.percent || 0;
   const cut = n => Math.round(n * (1 - pct / 100));      // discount applies to min and max
@@ -400,6 +416,12 @@ $('f').addEventListener('submit', e => {
   $('status').textContent = 'Otevře se váš e-mailový program s připravenou zprávou. Pokud ne, napište na machactomas@proton.me.';
 });
 
+// tooltip "i": klepnutí otevře/zavře info (na dotykových displejích), jinak stačí najet myší
+document.addEventListener('click', e => {
+  const t = e.target.closest('.tip');
+  document.querySelectorAll('.tip.open').forEach(x => { if (x !== t) x.classList.remove('open'); });
+  if (t) t.classList.toggle('open');
+});
 $('yr').textContent = new Date().getFullYear();
 render();
 </script>
