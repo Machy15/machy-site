@@ -158,7 +158,7 @@ Naklikejte požadované díly karoserie a spočítejte si cenu na míru.</p>
     <div class="card">
       <div class="tiers" id="tiers"></div>
       <div class="chips" id="chips"></div>
-      <label class="wax"><input type="checkbox" id="wax" checked><span><b>Přidat ochranu karnaubským voskem</b><br><span class="mut" id="waxinfo"></span></span></label>
+      <label class="wax"><input type="checkbox" id="wax"><span><b>Přidat karnaubský vosk na celé auto</b><br><span class="mut" id="waxinfo"></span></span></label>
       <!-- PROMO CODE: codes are defined in PROMOS in the script -->
       <div class="promo">
         <div class="pbox">
@@ -218,11 +218,10 @@ Naklikejte požadované díly karoserie a spočítejte si cenu na míru.</p>
 <script>
 /* =====================================================================
    1) PRICES. Edit numbers here. Ranges are [min, max] in Kč.
-   Standard panels: base polish 510 - 1 020; with wax this gives the
-   640 - 1 230 shown in the price list. Large and small panels: wax is
-   added on top. Set wax:false on a panel to exclude it from wax.
+   Each panel price comes from its tier (base). Carnauba wax is NOT per
+   panel: it is one flat add-on for the whole car (WAX below).
    ===================================================================== */
-const WAX = [90, 110];
+const WAX = [460, 620];   // Carnauba wax for the WHOLE CAR, charged once
 const TIERS = {
   large:    { en: 'Large panel',    cs: 'Velký díl', base: [600, 820], label: '600– 820 Kč' },
   standard: { en: 'Standard panel', cs: 'Běžný díl', base: [400, 600],  label: '400 – 600 Kč' },
@@ -230,20 +229,20 @@ const TIERS = {
 };
 /* Panel keys must match data-p in the SVG above. */
 const PANELS = {
-  hood:    { name: 'Kapota',                tier: 'large',    wax: true },
-  roof:    { name: 'Střecha',               tier: 'large',    wax: true },
-  doorFL:  { name: 'Přední dveře levé',     tier: 'standard', wax: true },
-  doorFR:  { name: 'Přední dveře pravé',    tier: 'standard', wax: true },
-  doorRL:  { name: 'Zadní dveře levé',      tier: 'standard', wax: true },
-  doorRR:  { name: 'Zadní dveře pravé',     tier: 'standard', wax: true },
-  fenderL: { name: 'Přední blatník levý',   tier: 'standard', wax: true },
-  fenderR: { name: 'Přední blatník pravý',  tier: 'standard', wax: true },
-  quarterL:{ name: 'Zadní bok levý',        tier: 'standard', wax: true },
-  quarterR:{ name: 'Zadní bok pravý',       tier: 'standard', wax: true },
-  bumper:  { name: 'Přední nárazník',       tier: 'small',    wax: true },
-  trunk:   { name: 'Víko kufru',            tier: 'small',    wax: true },
-  mirrors: { name: 'Pár zrcátek',           tier: 'small',    wax: false },
-  pillars: { name: 'B-sloupky v lesklé černé', tier: 'small', wax: false }
+  hood:    { name: 'Kapota',                tier: 'large' },
+  roof:    { name: 'Střecha',               tier: 'large' },
+  doorFL:  { name: 'Přední dveře levé',     tier: 'standard' },
+  doorFR:  { name: 'Přední dveře pravé',    tier: 'standard' },
+  doorRL:  { name: 'Zadní dveře levé',      tier: 'standard' },
+  doorRR:  { name: 'Zadní dveře pravé',     tier: 'standard' },
+  fenderL: { name: 'Přední blatník levý',   tier: 'standard' },
+  fenderR: { name: 'Přední blatník pravý',  tier: 'standard' },
+  quarterL:{ name: 'Zadní bok levý',        tier: 'standard' },
+  quarterR:{ name: 'Zadní bok pravý',       tier: 'standard' },
+  bumper:  { name: 'Přední nárazník',       tier: 'small' },
+  trunk:   { name: 'Víko kufru',            tier: 'small' },
+  mirrors: { name: 'Pár zrcátek',           tier: 'small' },
+  pillars: { name: 'B-sloupky v lesklé černé', tier: 'small' }
 };
 
 /* PROMO CODES. Keys must be lowercase (visitors can type any case).
@@ -251,7 +250,7 @@ const PANELS = {
    bonus: free service shown as a badge | msg: success message. One code is active at a time. */
 const PROMOS = {
   machy15:     { percent: 15, msg: 'Sleva 15 % byla uplatněna na odhad ceny.' },
-  machycar:    { freeWax: true, msg: 'Karnaubský vosk zdarma: vosk je v ceně (0 Kč).' },
+  machycar:    { freeWax: true, msg: 'Karnaubský vosk na celé auto zdarma (0 Kč).' },
   machytemp01: { bonus: 'Rozleštění pod klikami zdarma (odstranění škrábanců pod klikami dveří).',
                  msg: 'Rozleštění pod klikami zdarma bylo přidáno k vaší objednávce.' }
 };
@@ -286,12 +285,11 @@ const sel = new Set();
 let promo = null, totalText = '0 Kč';   // promo = active promo key (lowercase) or null
 
 function price(k) {            // returns [min, max] for one panel
-  const p = PANELS[k], b = TIERS[p.tier].base, w = promo && PROMOS[promo].freeWax ? [0, 0] : WAX;
-  return $('wax').checked && p.wax ? [b[0] + w[0], b[1] + w[1]] : [...b];
+  return [...TIERS[PANELS[k].tier].base];
 }
 function summary() {           // text used by the booking form
   const lines = [...sel].map(k => '- ' + PANELS[k].name);
-  let s = lines.join('\n') + `\nKarnaubský vosk: ${$('wax').checked ? 'ano' : 'ne'}`;
+  let s = lines.join('\n') + `\nKarnaubský vosk na celé auto: ${$('wax').checked ? 'ano' : 'ne'}`;
   if (promo) s += `\nSlevový kód: ${promo.toUpperCase()} (${PROMOS[promo].msg})`;
   return s + `\nOdhad ceny: ${totalText}`;
 }
@@ -299,7 +297,7 @@ function syncWax() {           // a free-wax code forces wax on and locks the to
   const free = promo && PROMOS[promo].freeWax;
   if (free) $('wax').checked = true;
   $('wax').disabled = !!free;
-  $('waxinfo').textContent = free ? 'Zdarma díky slevovému kódu' : `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč za každý vhodný díl`;
+  $('waxinfo').textContent = free ? 'Zdarma díky slevovému kódu' : `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč za celé auto (jednorázově)`;
 }
 function render() {
   syncWax();
@@ -308,12 +306,17 @@ function render() {
   $('list').innerHTML = [...sel].map(k => {
     const [a, b] = price(k); lo += a; hi += b;
     return `<li><span>${PANELS[k].name}</span><b>${fmt(a)} – ${fmt(b)} Kč</b></li>`;
-  }).join('') || '<li class="mut">Klepněte na díl auta a začněte.</li>';
+  }).join('') || ($('wax').checked ? '' : '<li class="mut">Klepněte na díl auta a začněte.</li>');
+  const waxOn = $('wax').checked, wc = promo && PROMOS[promo].freeWax ? [0, 0] : WAX;   // wax: one flat price for the whole car
+  if (waxOn) {
+    lo += wc[0]; hi += wc[1];
+    $('list').insertAdjacentHTML('beforeend', `<li><span>Karnaubský vosk (celé auto)</span><b>${wc[1] ? `${fmt(wc[0])} – ${fmt(wc[1])} Kč` : 'zdarma'}</b></li>`);
+  }
   const pr = promo && PROMOS[promo], pct = pr && pr.percent || 0;
   const cut = n => Math.round(n * (1 - pct / 100));      // discount applies to min and max
-  if (pct && sel.size) $('list').insertAdjacentHTML('beforeend', `<li class="mut"><span>Slevový kód ${promo.toUpperCase()}</span><b>−${pct} %</b></li>`);
-  $('was').textContent = pct && sel.size ? `${fmt(lo)} – ${fmt(hi)} Kč` : '';
-  totalText = sel.size ? `${fmt(cut(lo))} – ${fmt(cut(hi))} Kč` : '0 Kč';
+  if (pct && (sel.size || waxOn)) $('list').insertAdjacentHTML('beforeend', `<li class="mut"><span>Slevový kód ${promo.toUpperCase()}</span><b>−${pct} %</b></li>`);
+  $('was').textContent = pct && (sel.size || waxOn) ? `${fmt(lo)} – ${fmt(hi)} Kč` : '';
+  totalText = sel.size || waxOn ? `${fmt(cut(lo))} – ${fmt(cut(hi))} Kč` : '0 Kč';
   $('total').textContent = totalText;
   $('bonus').innerHTML = pr && pr.bonus ? `<div class="badge"><b>Zdarma</b><span>${pr.bonus}</span></div>` : '';
 }
@@ -321,7 +324,7 @@ function render() {
 // build tier list + chips
 $('tiers').innerHTML = Object.values(TIERS).map(t => `<div><span>${t.cs}</span><b>${t.label}</b></div>`).join('');
 $('chips').innerHTML = Object.entries(PANELS).map(([k, p]) => `<button type="button" class="chip" data-p="${k}">${p.name}</button>`).join('');
-$('waxinfo').textContent = `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč za každý vhodný díl`;
+$('waxinfo').textContent = `+${fmt(WAX[0])} – ${fmt(WAX[1])} Kč za celé auto (jednorázově)`;
 
 // click / tap on diagram or chip toggles a panel
 document.addEventListener('click', e => {
@@ -345,9 +348,9 @@ function setPromo(code) {
 }
 $('apply').onclick = () => setPromo($('promo').value);
 $('promo').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); setPromo($('promo').value); } });
-$('reset').onclick = () => { sel.clear(); $('wax').checked = true; $('promo').value = ''; setPromo(''); };
+$('reset').onclick = () => { sel.clear(); $('wax').checked = false; $('promo').value = ''; setPromo(''); };
 $('book').onclick = () => {
-  if (sel.size) $('f').panels.value = summary();
+  if (sel.size || $('wax').checked) $('f').panels.value = summary();
   $('contact').scrollIntoView({ behavior: 'smooth' });
 };
 
