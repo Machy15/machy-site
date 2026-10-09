@@ -409,15 +409,30 @@ $('gallery').innerHTML = ITEMS.map(g => `<figure class="card"><div class="ba">
 $('gallery').addEventListener('input', e => e.target.closest('.ba').style.setProperty('--p', e.target.value + '%'));
 
 // contact form: opens the visitor's email app with the message filled in.
-// (To send without an email app, point this form at a form service such as Formspree.)
-$('f').addEventListener('submit', e => {
+// formulář: odešle e-mail na pozadí přes FormSubmit (první odeslání vyžaduje aktivaci e-mailem)
+const FORM_EMAIL = 'machactomas@proton.me';
+$('f').addEventListener('submit', async e => {
   e.preventDefault();
-  const d = new FormData(e.target), v = k => d.get(k) || '-';
-  const body = `Jméno: ${v('name')}\nE-mail: ${v('email')}\nTelefon: ${v('phone')}\nVozidlo: ${v('car')}\nSlevový kód: ${v('promoCode')}\n\nDíly:\n${v('panels')}\n\nZpráva:\n${v('msg')}`;
-  const a = document.createElement('a');
-  a.href = `mailto:machactomas@proton.me?subject=${encodeURIComponent('Poptávka služeb: ' + v('car'))}&body=${encodeURIComponent(body)}`;
-  a.click();
-  $('status').textContent = 'Otevře se váš e-mailový program s připravenou zprávou. Pokud ne, napište na machactomas@proton.me.';
+  const f = e.target, btn = f.querySelector('button[type=submit]'), d = new FormData(f), v = k => d.get(k) || '-';
+  const data = {
+    'Jméno': v('name'), email: v('email'), 'Telefon': v('phone'), 'Vozidlo': v('car'),
+    'Slevový kód': v('promoCode'), 'Díly': v('panels'), 'Zpráva': v('msg'),
+    _subject: 'Poptávka služeb: ' + v('car'), _template: 'table', _captcha: 'false', _honey: d.get('_honey')
+  };
+  btn.disabled = true;
+  $('status').textContent = 'Odesílám…';
+  try {
+    const r = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
+    });
+    const j = await r.json();
+    if (!r.ok || String(j.success) === 'false') throw new Error(j.message || r.status);
+    f.reset();
+    $('status').textContent = 'Děkujeme, poptávka byla odeslána. Ozveme se vám co nejdříve.';
+  } catch (err) {
+    $('status').textContent = 'Odeslání se nepodařilo. Napište nám prosím přímo na ' + FORM_EMAIL + '.';
+  }
+  btn.disabled = false;
 });
 
 // tooltip "i": klepnutí otevře/zavře info (na dotykových displejích), jinak stačí najet myší
